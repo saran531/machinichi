@@ -1,0 +1,25 @@
+(node:16832) [MONGOOSE] Warning: mongoose: Duplicate schema index on {"sessionId":1} for model "ProductViewEvent". This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:16832) [MONGOOSE] Warning: mongoose: Duplicate schema index on {"userId":1} for model "ProductViewEvent". This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+    at new ObjectId (D:\Project\Machinichi\machinichi\backend\node_modules\bson\src\objectid.ts:131:15)
+    at trackView (D:\Project\Machinichi\machinichi\backend\src\services\analytics.service.ts:147:15)
+    at registerView (D:\Project\Machinichi\machinichi\backend\src\controllers\tracking.controller.ts:48:35)
+    at Layer.handleRequest (D:\Project\Machinichi\machinichi\backend\node_modules\router\lib\layer.js:152:17)
+    at next (D:\Project\Machinichi\machinichi\backend\node_modules\router\lib\route.js:157:13)
+    at optionalAuth (D:\Project\Machinichi\machinichi\backend\src\middlewares\auth.middleware.ts:72:14)
+    at Layer.handleRequest (D:\Project\Machinichi\machinichi\backend\node_modules\router\lib\layer.js:152:17)
+    at next (D:\Project\Machinichi\machinichi\backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\Project\Machinichi\machinichi\backend\node_modules\router\lib\route.js:117:3)
+    at handle (D:\Project\Machinichi\machinichi\backend\node_modules\router\index.js:435:11)
+MongoServerError: E11000 duplicate key error collection: machinichi.views index: userId_1_productId_1 dup key: { userId: null, productId: ObjectId('6a53cfec2fc1b565f840db42') }
+    at InsertOneOperation.handleOk (D:\Project\Machinichi\machinichi\backend\node_modules\mongoose\node_modules\mongodb\src\operations\insert.ts:79:13)
+    at executeOperationWithRetries (D:\Project\Machinichi\machinichi\backend\node_modules\mongoose\node_modules\mongodb\src\operations\execute_operation.ts:267:26)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async executeOperation (D:\Project\Machinichi\machinichi\backend\node_modules\mongoose\node_modules\mongodb\src\operations\execute_operation.ts:127:12)
+    at async Collection.insertOne (D:\Project\Machinichi\machinichi\backend\node_modules\mongoose\node_modules\mongodb\src\collection.ts:294:12)
+    at async model.$__save (D:\Project\Machinichi\machinichi\backend\node_modules\mongoose\lib\model.js:434:16)
+    at async maybeTracedSave (D:\Project\Machinichi\machinichi\backend\node_modules\mongoose\lib\model.js:675:7)
+    at async model.create (D:\Project\Machinichi\machinichi\backend\node_modules\mongoose\lib\model.js:2763:5)
+    at async trackView (D:\Project\Machinichi\machinichi\backend\src\services\analytics.service.ts:166:3)
+    at async registerView (D:\Project\Machinichi\machinichi\backend\src\controllers\tracking.controller.ts:48:20)
